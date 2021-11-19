@@ -1,0 +1,19 @@
+{% extends 'core/base_real.html' %}
+{% load static %}
+{% block title %}Vehículos{% endblock %}
+{% block content %}
+{% include 'vehiculos/includes/vehiculos_menu.html' %}
+<div>
+	<form action="" method="post">{% csrf_token %}
+		<div>
+			Nº de Reparación: {{contador_or}}
+		</div>
+		<div>
+			{{form.as_p}}
+		</div>		
+		<div>
+			<input type="submit" value="Crear OR">
+		</div>
+	</form>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{% endblock %}</title>
+  {% load static %}
+  <script src="{% static 'core/js/modernizr-custom.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'core/css/normalize.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/design.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/icomoon.css' %}">
+</head>
+<body>
+  <nav>
+    <div>
+      <ul>
+        <li><a href="{% url 'profiles:list' %}">Perfiles</a></li>
+        <li><a href="{% url 'registro:registro'%}">Registro</a></li>
+        <li><a href="{% url 'login' %}">Acceder</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  {% block content %}{% endblock %}
+  
+</body>
+</html>

@@ -1,0 +1,48 @@
+{% extends 'core/base_real.html' %}
+{% load static %}
+{% block title %}Clientes{% endblock %}
+{% block content %}
+
+<main role="main">
+	<div>
+
+		<form method="GET">
+
+		{{filter.form}}
+
+		<button type="submit" class="btn btn-primary">Buscar</button>
+
+		</form>
+		<ul>
+			<th>DNI</th>
+			<th>Nombre</th>
+			<th>Apellidos</th>
+			<th>Grupo</th>
+			<th>Código Postal</th>
+			<th>Dirección</th>
+			<th>Localidad</th>
+			<th>Provincia</th>
+			<th>País</th>
+			<th>Tfno Móvil</th>
+			<th>Email</th>
+			<th>Web</th>
+			<th>Fecha Alta</th>
+			<th>Fecha Modificación</th>
+			<th>Observaciones</th>
+			{% for cliente in filter.qs %}
+				<div>
+					{% if cliente.avatar %}
+						<img src="{{cliente.avatar.url}}">
+					{% else %}
+						<img src="{% static 'vehiculos/img/avatar.png' %}">
+					{% endif %}
+					<td>{{cliente.dni}}</td>
+					<td>{{cliente.nombre}}</td>
+					<td>{{cliente.apellidos}}</td>
+					<td><a href="{% url 'profiles:detail' cliente.dni %}">Ver Perfil</a></td>
+				</div>
+			{% endfor %}
+		</ul>
+	</div>
+</main>
+{% endblock %}

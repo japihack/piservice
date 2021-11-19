@@ -1,0 +1,18 @@
+{% extends 'core/base_real.html' %}
+{% load static %}
+{% block title %}Vehículos{% endblock %}
+{% block content %}
+{% include 'vehiculos/includes/vehiculos_menu.html' %}
+<div>
+	<ul>
+		<li>
+			<form action="" method="post">{% csrf_token %}
+				{{ form.as_p}}
+				<div>
+					<input type="submit" value="Guardar">
+				</div>
+			</form>
+		</li>
+	</ul>
+</div>
+{% endblock %}

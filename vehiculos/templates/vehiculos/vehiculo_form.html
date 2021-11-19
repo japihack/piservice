@@ -1,0 +1,51 @@
+{% extends 'core/base_real.html' %}
+{% load static %}
+{% block title %}Vehículos{% endblock %}
+{% block content %}
+{% include 'vehiculos/includes/vehiculos_menu.html' %}
+<div>
+	<!--
+	<form method="GET">
+
+		{{filter.form}}
+
+		<button type="submit" class="btn btn-primary">Buscar</button>
+
+		{% if filter.qs%}
+
+			{% for vehiculo in filter.qs %}
+				<div>
+					<h2>Perfil</h2>
+					{% if vehiculo.cliente.avatar %}
+						<img src="{{vehiculo.cliente.avatar.url}}">
+					{% else %}
+						<img src="{% static 'vehiculos/img/avatar.png' %}">
+					{% endif %}
+					<td>{{vehiculo.cliente.dni}}</td>
+					<td>{{vehiculo.cliente.nombre}}</td>
+					<td>{{vehiculo.cliente.apellidos}}</td>
+					<td>{{vehiculo.cliente.email}}</td>
+
+					<div>
+						<h2>Vehículos</h2>
+						<td>{{vehiculo.matricula}}</td>
+						<td>{{vehiculo.marca}}</td>
+						<td>{{vehiculo.modelo}}</td>
+					</div>
+				</div> 
+			{% endfor %}
+
+		{% endif %}
+
+	</form>
+-->
+		<form action="" method="post">{% csrf_token %}
+			<div>
+				{{form.as_p}}
+			</div>		
+		<div>
+			<input type="submit" value="Crear Vehículo">
+		</div>
+	</form>
+</div>
+{% endblock %}
